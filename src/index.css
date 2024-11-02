@@ -1,0 +1,74 @@
+@font-face {
+    font-family: young-serif;
+    src: url(./assets/fonts/young-serif/YoungSerif-Regular.ttf) format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: outfit-400;
+    src: url(./assets/fonts/outfit/Outfit-VariableFont_wght.ttf) format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: outfit-600;
+    src: url(./assets/fonts/outfit/Outfit-VariableFont_wght.ttf) format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: outfit-700;
+    src: url(./assets/fonts/outfit/Outfit-VariableFont_wght.ttf) format('truetype');
+    font-weight: 700;
+}
+
+:root {
+    --white-color: hsl(0, 0%, 100%);
+    --stone-100-color: hsl(30, 54%, 90%);
+    --stone-150-color: hsl(30, 18%, 87%);
+    --stone-600-color: hsl(30, 10%, 34%);
+    --stone-900-color: hsl(24, 5%, 18%);
+    --brown-800-color: hsl(14, 45%, 36%);
+    --rose-800-color: hsl(332, 51%, 32%);
+    --rose-50-color: hsl(330, 100%, 98%);
+
+    --young-serif-font: "young-serif";
+    --outfit-400-font: "outfit-400";
+    --outfit-600-font: "outfit-600";
+    --outfit-700-font: "outfit-700";
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    background-color: var(--stone-100-color);
+
+    display: flex;
+    justify-content: center;
+
+    margin: 100px 0 100px 0;
+}
+
+body div[id="root"] {
+    width: 60%;
+}
+
+.recipe-post {
+    background-color: var(--white-color);
+    padding: 35px;
+    border-radius: 15px;
+}
+
+.recipe-post .recipe-post__name {
+    font-family: var(--young-serif-font), serif;
+    font-size: 40px;
+    margin: 25px 0;
+}
+
+.recipe-post img {
+    width: 100%;
+    height: auto;
+}
