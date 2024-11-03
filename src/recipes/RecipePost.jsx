@@ -1,59 +1,14 @@
 import omelette from '../assets/images/image-omelette.jpeg';
 import RecipePreparation from "./RecipePreparation.jsx";
-import {useState} from "react";
 import RecipeSection from "./RecipeSection.jsx";
+import {usePreparationItems} from "./hooks/usePreparationItems.js";
+import useIngredients from "./hooks/useIngredients.js";
+import useInstructions from "./hooks/useInstructions.js";
 
 function RecipePost() {
-    const [items, setItems] = useState([
-        {
-            name: "Total",
-            content: "Approximately 10 minutes"
-        },
-        {
-            name: "Preparation",
-            content: "5 minutes"
-        },
-        {
-            name: "Cooking",
-            content: "5 minutes"
-        }
-    ]);
-
-    const [ingredients, setIngredients] = useState([
-        "2-3 large eggs",
-        "Salt, to taste",
-        "Pepper, to taste",
-        "1 tablespoon of butter or oil",
-        "Optional fillings: cheese, diced vegetables, cooked meats, herbs"
-    ]);
-
-    const [instructions, setInstructions] = useState([
-            {
-                "step": "Beat the eggs",
-                "instruction": "In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. You can add a tablespoon of water or milk for a fluffier texture."
-            },
-            {
-                "step": "Heat the pan",
-                "instruction": "Place a non-stick frying pan over medium heat. Add the butter or oil."
-            },
-            {
-                "step": "Cook the omelette",
-                "instruction": "Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure the eggs evenly coat the surface."
-            },
-            {
-                "step": "Add fillings (optional)",
-                "instruction": "When the eggs begin to set at the edges but are still slightly runny in the middle, sprinkle your chosen fillings over one half of the omelette."
-            },
-            {
-                "step": "Fold and serve",
-                "instruction": "As the omelette continues to cook, carefully lift one edge and fold it over the fillings. Let it cook for another minute, then slice it onto a plate."
-            },
-            {
-                "step": "Enjoy",
-                "instruction": "Serve hot, with additional salt and pepper if needed."
-            }
-        ]
-    );
+    const preparationItems = usePreparationItems();
+    const ingredients = useIngredients();
+    const instructions = useInstructions();
 
     const additionalNutritionSectionHeaderContent = <p>The table below show nutritional values per serving without the
         additional fillings.</p>;
@@ -71,7 +26,7 @@ function RecipePost() {
 
             <main>
                 <RecipePreparation title="Preparation time">
-                    {items.map(({name, content}, index) => (
+                    {preparationItems.map(({name, content}, index) => (
                         <RecipePreparation.Item key={index} name={name}>
                             {content}
                         </RecipePreparation.Item>
